@@ -1,0 +1,37 @@
+body {
+    background-image: url("https://www.xtrafondos.com/wallpapers/rick-y-morty-fanart-2020-6344.jpg");
+    background-size: 100%;
+}
+
+.todo {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh 20vh 2vh 20vh;
+}
+
+h1 {
+    background-color: #0c9f24;
+}
+
+label {
+    background-color: green;
+}
+
+.button {
+    background-color: green;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #aaa;
+}
+p{
+    color: red;
+    background-color: #aaa;
+}

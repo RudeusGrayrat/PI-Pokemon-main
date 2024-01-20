@@ -1,0 +1,31 @@
+.landing {
+    background-image: url("https://wallpaperaccess.com/full/24934.jpg");
+    min-height: 98vh;
+    background-size: cover;
+    background-position: center center;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.navlink {
+    text-decoration: none;
+    color: white;
+
+}
+
+.bienvenido {
+    color: white;
+    font-size: 33px;
+    position: absolute;
+    top: 47%;
+    left: 40%;
+}
+
+.pokemons:hover {
+    color: gold;
+    background-color: rgba(85, 208, 212, 0.484);
+    border-radius: 10px;
+}

@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+body{
+  background-image: url("https://images.wikidexcdn.net/mwuploads/wikidex/e/ea/latest/20191005131536/Bosque_Lumirinto_%28c%C3%A1mara%29.png");
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
