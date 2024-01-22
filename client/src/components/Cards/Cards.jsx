@@ -6,12 +6,13 @@ import { useEffect } from 'react';
 
 function Cards(props) {
     const characters = useSelector((state)=> state.allPokemons)
+    const pokemon = useSelector((state)=> state.pokemonName)
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(fetchPokemons())
     }, [])
 
-    console.log(characters);
+    const respuesta = pokemon.length > 0 ? pokemon : characters.slice(0,12)
 
     return (
         <div className={styles.home}>
@@ -22,7 +23,7 @@ function Cards(props) {
             </div>
             <div className={styles.cards}>
 
-                {(characters?.map((char) => {
+                {(respuesta?.map((char) => {
                     if (char.sprites) {
                         return (
                             <Card

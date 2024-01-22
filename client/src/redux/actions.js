@@ -3,7 +3,7 @@ import axios from 'axios';
 export const GET_ALL_POKEMONS = 'GET_ALL_POKEMONS';
 export const GET_DETAIL_POKEMON = 'GET_DETAIL_POKEMON'
 export const SEARCH_POKEMON = 'SEARCH_POKEMON'
-export const CLEAN_DETAIL = 'CLEAN_DETAIL'
+export const CLEAN_POKEMON = 'CLEAN_POKEMON'
 
 
 export const fetchPokemons = () => async (dispatch) => {
@@ -38,7 +38,7 @@ export const searchPokemon = (name) => async (dispatch) => {
     const response = await axios.get(`http://localhost:3001/pokemons?name=${name}`);
     const pokemon = response.data;
     dispatch({
-      type: GET_DETAIL_POKEMON,
+      type: SEARCH_POKEMON,
       payload: pokemon,
     });
   } catch (error) {
@@ -49,7 +49,7 @@ export const searchPokemon = (name) => async (dispatch) => {
 export const cleanSearch = () => (dispatch)=>{
   const vacio = []
   dispatch({
-    type: CLEAN_DETAIL,
+    type: CLEAN_POKEMON,
     payload: vacio,
   });
 }
