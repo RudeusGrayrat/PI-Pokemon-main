@@ -1,27 +1,36 @@
-import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { NavLink, useLocation, } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
-import { fetchPokemons } from '../../redux/actions'; // Asegúrate de tener este archivo
 import styles from './Nav.module.css';
+import { useDispatch } from 'react-redux';
+import { cleanSearch } from '../../redux/actions';
 
-function Nav({ onSearch, fetchPokemons }) {
-   // Resto del código
+function Nav(props) {
+
    const location = useLocation()
+   const dispatch = useDispatch()
+
    if (location.pathname === '/' || location.pathname === "/create") {
       return null;
    }
+
+   const clean = () => {
+      dispatch(cleanSearch())
+   };
+
 
    return (
       <div className={styles.Nav}>
          <NavLink to="/home"
             className={styles.navlink}>
-            <button className={styles.button}>
+            <button className={styles.button}
+               onClick={clean}>
+
                Home
             </button>
          </NavLink>
 
-         <SearchBar onSearch={onSearch} />
+         <SearchBar />
+
 
          <NavLink to="/create"
             className={styles.navlink}>
@@ -34,8 +43,4 @@ function Nav({ onSearch, fetchPokemons }) {
    );
 }
 
-const mapDispatchToProps = {
-   fetchPokemons,
-};
-
-export default connect(null, mapDispatchToProps)(Nav);
+export default Nav;
