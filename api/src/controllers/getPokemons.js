@@ -27,9 +27,9 @@ const getPokemons = async (req, res) => {
     
                 // Combinar y ordenar los resultados de la base de datos local y la API
                 const allPokemons = [...localPokemons, apiPokemon];
-                res.status(200).json(allPokemons);
+                return res.status(200).json(allPokemons);
             }
-            res.status(200).json(localPokemons);
+            return res.status(200).json(localPokemons);
 
 
         } else {
@@ -49,13 +49,13 @@ const getPokemons = async (req, res) => {
             // Combinar y ordenar los resultados de la base de datos local y la API
             const allPokemons = [...pokemons, ...apiPokemons];
 
-            res.status(200).json(allPokemons);
+            return res.status(200).json(allPokemons);
         }
 
         // Si no se encuentran pokemones
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Error al obtener los pokemones' });
+        return res.status(500).json({ error: 'Error al obtener los pokemones' });
     }
 };
 

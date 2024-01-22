@@ -1,8 +1,8 @@
 //rootReducer.js
-import { GET_ALL_POKEMONS, GET_DETAIL_POKEMON } from "./actions";
+import { GET_ALL_POKEMONS, GET_DETAIL_POKEMON, SEARCH_POKEMON } from "./actions";
 const initialState = {
   allPokemons: [],//Cards
-  pokemon: [],//Search
+  pokemonName: [],//Search
   pokemonDetails: {},//Detail
   //filtrar
   types: [],
@@ -28,16 +28,16 @@ const rootReducer = (state = initialState, action) => {
         pokemonDetails: action.payload,
         errors: {},
       };
+    case SEARCH_POKEMON:
+      return {
+        ...state,
+        pokemonName: action.payload,
+        errors: {},
+      };
     case 'GET_TYPES':
       return {
         ...state,
         types: action.payload,
-        errors: {},
-      };
-    case 'GET_POKEMON_BY_NAME':
-      return {
-        ...state,
-        pokemons: action.payload,
         errors: {},
       };
     case 'CLEAN_DETAIL':
@@ -50,14 +50,14 @@ const rootReducer = (state = initialState, action) => {
       // ...
       return {
         ...state,
-        pokemons:  action.payload,
+        pokemons: action.payload,
       };
     case 'FILTER_POKEMONS':
       // Implementa la lógica para FILTER_POKEMONS
       // ...
       return {
         ...state,
-        pokemons: action.payload ||  action.payload,
+        pokemons: action.payload || action.payload,
         filterInfo: (action.payload === "AllPokemons") ? [] : [action.payload],
       };
     case 'ORDER_POKEMONS':
@@ -65,7 +65,7 @@ const rootReducer = (state = initialState, action) => {
       // ...
       return {
         ...state,
-        pokemons:  action.payload,
+        pokemons: action.payload,
       };
     case 'ERROR':
       return {
