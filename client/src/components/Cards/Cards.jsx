@@ -46,7 +46,6 @@ function Cards(props) {
                             />
                         );
                     } else if (char.url) {
-                        // Estructura del segundo tipo (personaje de la API)
                         const idapi = Number(char.url.split("/").slice(-2, -1)[0]);
                         return (
                             <Card

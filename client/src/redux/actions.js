@@ -1,4 +1,3 @@
-// actions.js
 import axios from 'axios';
 export const GET_ALL_POKEMONS = 'GET_ALL_POKEMONS';
 export const GET_DETAIL_POKEMON = 'GET_DETAIL_POKEMON'

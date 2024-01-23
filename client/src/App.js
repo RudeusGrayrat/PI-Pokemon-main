@@ -1,5 +1,3 @@
-// App.js
-
 import React from 'react';
 import './App.css';
 import Nav from './components/Nav/Nav';
@@ -11,7 +9,7 @@ import Cards from "./components/Cards/Cards";
 import styles from "./components/Landing/Landing.module.css"
 import { Provider } from 'react-redux';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import store from './redux/store'; // Asegúrate de tener este archivo
+import store from './redux/store';
 
 function App() {
   const location = useLocation()

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { fetchCharacter } from '../../redux/actions'; // Asegúrate de tener este archivo
+import { fetchCharacter } from '../../redux/actions';
 import styles from './Detail.module.css';
 import style from '../Card/Card.module.css';
 

@@ -15,8 +15,6 @@ export default function SearchBar(props) {
       dispatch(searchPokemon(name))
    }
 
-   
-   
     return (
        <div className={styles.searchBar}>
           <input className={styles.buscador} type='search' value={name} onChange={handleChange}/>

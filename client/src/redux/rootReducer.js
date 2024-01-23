@@ -1,17 +1,10 @@
-//rootReducer.js
 import { GET_ALL_POKEMONS, GET_DETAIL_POKEMON, SEARCH_POKEMON, CLEAN_POKEMON } from "./actions";
+
 const initialState = {
-  allPokemons: [],//Cards
-  pokemonName: [],//Search
-  pokemonDetails: {},//Detail
-  //filtrar
-  types: [],
-  origen: [],
-  //ordenar
-  alfabetico: [],
-  ataque: [],
-  desendente: [],
-  ascendente: [],
+  allPokemons: [],
+  pokemonName: [],
+  pokemonDetails: {},
+
 }
 
 const rootReducer = (state = initialState, action) => {
