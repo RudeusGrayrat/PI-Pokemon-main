@@ -14,7 +14,7 @@ export const fetchPokemons = () => async (dispatch) => {
       payload: pokemons,
     });
   } catch (error) {
-    console.error('Error fetching pokemons:', error);
+    alert('Error fetching pokemons:', error);
   }
 };
 
@@ -22,7 +22,6 @@ export const fetchCharacter = (id) => async (dispatch) => {
   try {
     const response = await axios.get(`http://localhost:3001/pokemons/${id}`);
     const character = response.data;
-    // Dispatch para actualizar el estado con el personaje específico
     dispatch({
       type: GET_DETAIL_POKEMON,
       payload: character,
@@ -45,7 +44,7 @@ export const searchPokemon = (name) => async (dispatch) => {
   }
 };
 
-export const cleanSearch = () => (dispatch)=>{
+export const cleanSearch = () => (dispatch) => {
   const vacio = []
   dispatch({
     type: CLEAN_POKEMON,

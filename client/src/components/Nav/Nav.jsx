@@ -9,7 +9,7 @@ function Nav(props) {
    const location = useLocation()
    const dispatch = useDispatch()
 
-   if (location.pathname === '/' || location.pathname === "/create") {
+   if (location.pathname === '/' || location.pathname === "/create" || location.pathname.includes("/detail")) {
       return null;
    }
 
