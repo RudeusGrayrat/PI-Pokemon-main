@@ -11,7 +11,7 @@ function Landing() {
           Pokemons
         </h1 >
         </NavLink>
-        <p >
+        <p className={styles.nc}>
           create by @nc
         </p>
 
