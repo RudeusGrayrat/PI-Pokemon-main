@@ -1,4 +1,5 @@
 import axios from 'axios';
+import styles from "./Form.module.css"
 import { useState } from 'react';
 
 const Form = () => {
@@ -47,8 +48,13 @@ const Form = () => {
             types: [],
         });
     }
+
+    const click = () =>{
+        createPokemon()
+    }
+
     return (
-        <div>
+        <div children={styles.todo}>
             <h2>FORM PAGE</h2>
             <form>
                 <div>
@@ -61,7 +67,7 @@ const Form = () => {
                         onChange={handleChange} />
                 </div>
                 <div>
-                    <label htmlFor="types">Image:</label>
+                    <label htmlFor="types">Imagen:</label>
                     <input
                         type='imagen'
                         id='image'
@@ -88,10 +94,10 @@ const Form = () => {
                 </div>
                 <div>
                     <label htmlFor="types">Defensa:</label>
-                    <input type='defensa'
+                    <input type='number'
                         id='defensa'
                         name='defensa'
-                        value={userData.defensa !== 0 ? userData.ataque : ''}
+                        value={userData.defensa !== 0 ? userData.defensa : ''}
                         onChange={handleChange} />
                 </div>
                 <div>
@@ -102,26 +108,26 @@ const Form = () => {
                         value={userData.velocidad}
                         onChange={handleChange} />
                 </div>
-                {userData.altura !== undefined && ( // Asegúrate de que 'altura' esté definida en el estado
+                {userData.altura !== undefined && ( 
                     <div>
                         <label htmlFor="altura">Altura:</label>
                         <input
-                            type="text"
+                            type="number"
                             id="altura"
                             name="altura"
-                            value={userData.altura !== 0 ? userData.ataque : ''}
+                            value={userData.altura !== 0 ? userData.altura : ''}
                             onChange={handleChange}
                         />
                     </div>
                 )}
-                {userData.peso !== undefined && ( // Asegúrate de que 'peso' esté definida en el estado
+                {userData.peso !== undefined && (
                     <div>
                         <label htmlFor="peso">Peso:</label>
                         <input
-                            type="text"
+                            type="number"
                             id="peso"
                             name="peso"
-                            value={userData.peso !== 0 ? userData.ataque : ''}
+                            value={userData.peso !== 0 ? userData.peso : ''}
                             onChange={handleChange}
                         />
                     </div>
@@ -152,10 +158,10 @@ const Form = () => {
                         <option value= "dark">dark</option>
                         <option value= "fairy">fairy</option>
                         <option value= "unknown">unknown</option>
-                        <option value="grass">"shadow"</option>
+                        <option value="grass">shadow</option>
                     </select>
                 </div>
-                <button type="submit" onClick={(e) => { e.preventDefault(); createPokemon() }}>Crear Pokémon</button>
+                <button type="submit" onClick={click}>Crear Pokémon</button>
 
             </form>
 

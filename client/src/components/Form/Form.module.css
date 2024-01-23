@@ -1,5 +1,4 @@
 body {
-    background-image: url("https://www.xtrafondos.com/wallpapers/rick-y-morty-fanart-2020-6344.jpg");
     background-size: 100%;
 }
 
@@ -17,8 +16,9 @@ body {
     padding: 2vh 20vh 2vh 20vh;
 }
 
-h1 {
-    background-color: #0c9f24;
+h2 {
+    color: #0c9f24;
+
 }
 
 label {
