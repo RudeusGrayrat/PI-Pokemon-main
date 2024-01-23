@@ -17,7 +17,6 @@ const postPokemons = async (req, res) => {
     const defensaNum = parseInt(defensa);
     try {
 
-        // Verificar si la conversión fue exitosa y no es NaN
         const ataque = isNaN(ataqueNum) ? 0 : ataqueNum;
         const defensa = isNaN(defensaNum) ? 0 : defensaNum;
         // Verificar si ya existe un Pokémon con el mismo nombre
@@ -48,20 +47,16 @@ const postPokemons = async (req, res) => {
 
         const typesToAssociate = await Type.findAll({
             where: {
-                name: types  // types debe ser un array de nombres de tipo
+                name: types  
             }
         });
 
-        // Verificar si se encontraron los tipos especificados
         if (typesToAssociate.length < 2) {
-            // Si hay menos de dos tipos, enviar un mensaje de error
-            await newPokemon.destroy(); // Eliminar el Pokémon creado para evitar registros incompletos
+            await newPokemon.destroy(); 
             return res.status(400).json({
                 error: 'Se requieren al menos dos tipos para un Pokémon.'
             });
         }
-        // Asociar los tipos al nuevo Pokémon
-        // Asociar los tipos al nuevo Pokémon
         await newPokemon.setTypes(typesToAssociate);
 
         res.status(200).json(newPokemon);

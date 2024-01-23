@@ -9,9 +9,6 @@ const getPokemonsById = async (req, res) => {
       };
     try {
         const { idPokemon } = req.params
-        // Si no se encuentra en la base de datos local, hacer una solicitud a la API
-        // Si se encuentra en la base de datos local, devolver el resultado
-        
         
         if (isUUID(idPokemon)) {
             const pokemon = await Pokemon.findOne({
@@ -32,7 +29,6 @@ const getPokemonsById = async (req, res) => {
             const apiResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${idPokemon}`);
             const apiPokemon = apiResponse.data;
             if (apiResponse.status === 404) {
-                // Si la API devuelve un código de estado 404, el Pokémon no se encontró en la API
                 return res.status(404).json({ error: 'No se encontró el Pokémon en la API' });
             }
             res.status(200).json(apiPokemon);
