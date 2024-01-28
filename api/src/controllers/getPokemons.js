@@ -24,7 +24,7 @@ const getPokemons = async (req, res) => {
             if (localPokemons.length === 0) {
                 const apiResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
                 const apiPokemon = apiResponse.data;
-    
+
                 const allPokemons = [...localPokemons, apiPokemon];
                 return res.status(200).json(allPokemons);
             }
@@ -41,10 +41,19 @@ const getPokemons = async (req, res) => {
                     }
                 },
             });
-            const apiResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon`);
-            const apiPokemons = apiResponse.data.results;
+            let todoDeApi = []
+            let nextUrl = 'https://pokeapi.co/api/v2/pokemon';
+            while (nextUrl) {
+                const apiResponse = await axios.get(nextUrl);
+                const apiPokemons = apiResponse.data;
+                const results = apiPokemons.results;
 
-            const allPokemons = [...pokemons, ...apiPokemons];
+                todoDeApi = [...todoDeApi, ...results];
+                nextUrl = apiPokemons.next;
+            }
+
+
+            const allPokemons = [...pokemons, ...todoDeApi];
 
             return res.status(200).json(allPokemons);
         }

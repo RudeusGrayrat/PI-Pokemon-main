@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 function Cards(props) {
     const characters = useSelector((state)=> state.allPokemons)
     const pokemon = useSelector((state)=> state.pokemonName)
-    const slice12 = useSelector((state) => state.unadeejemplo);
+    const slice12 = useSelector((state) => state.paginado);
 
     const dispatch = useDispatch()
     useEffect(()=>{

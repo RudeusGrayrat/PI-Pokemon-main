@@ -4,7 +4,7 @@ const initialState = {
   allPokemons: [],
   pokemonName: [],
   pokemonDetails: {},
-  unadeejemplo: 0,
+  paginado: 0,
 
 }
 
@@ -41,7 +41,7 @@ const rootReducer = (state = initialState, action) => {
     case SLICE_CHANGE:
       return {
         ...state,
-        unadeejemplo: action.payload,
+        paginado: action.payload,
       };
 
     default:

@@ -3,15 +3,19 @@ import { changePage, sliceMas, sliceMenos } from "../../redux/actions";
 
 function Pagination() {
     const buscado = useSelector((state) => state.pokemonName);
-    const unadeejemplo = useSelector((state) => state.unadeejemplo);
-
+    const pagina = useSelector((state) => state.paginaActual);
+    const paginado = useSelector((state) => state.paginado);
     const dispatch = useDispatch()
-
-    const siguiente = () => {
-        dispatch(sliceMas(unadeejemplo))
+      
+    const atras = () =>{
+        if (paginado === 0) {
+            return null
+        } else {
+            dispatch(sliceMenos(paginado))
+        }
     }
-    const atras = () => {
-        dispatch(sliceMenos(unadeejemplo))
+    const siguiente = () =>{
+        dispatch(sliceMas(paginado))
     }
     if (buscado.length > 0) {
         return null
