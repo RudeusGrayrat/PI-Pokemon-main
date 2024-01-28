@@ -14,7 +14,6 @@ function Detail(props) {
       dispatch(fetchCharacter(id))
    }, [id])
 
-   console.log(character);
    const types = character?.types?.map((ty) => ty.type);
    const tipos = types?.map((ti) => ti.name)
    const Types = character?.Types?.map((typ)=> typ.name)

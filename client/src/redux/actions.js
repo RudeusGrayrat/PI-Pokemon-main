@@ -3,7 +3,8 @@ export const GET_ALL_POKEMONS = 'GET_ALL_POKEMONS';
 export const GET_DETAIL_POKEMON = 'GET_DETAIL_POKEMON'
 export const SEARCH_POKEMON = 'SEARCH_POKEMON'
 export const CLEAN_POKEMON = 'CLEAN_POKEMON'
-
+export const CHANGE_PAGE = 'CHANGE_PAGE';
+export const SLICE_CHANGE = 'SLICE_CHANGE';
 
 export const fetchPokemons = () => async (dispatch) => {
   try {
@@ -50,4 +51,23 @@ export const cleanSearch = () => (dispatch) => {
     type: CLEAN_POKEMON,
     payload: vacio,
   });
+}
+export const changePage = (pagina) => (dispatch) => {
+  dispatch({
+    type: CHANGE_PAGE,
+    payload: pagina + 1
+  })
+}
+export const sliceMas = (ejemplo) => (dispatch) => {
+  dispatch({
+    type: SLICE_CHANGE,
+    payload: ejemplo + 12
+  })
+}
+
+export const sliceMenos = (ejemplo) => (dispatch) => {
+  dispatch({
+    type: SLICE_CHANGE,
+    payload: ejemplo - 12
+  })
 }
