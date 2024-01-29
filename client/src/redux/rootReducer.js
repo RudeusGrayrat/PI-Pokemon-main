@@ -1,11 +1,11 @@
-import { GET_ALL_POKEMONS, GET_DETAIL_POKEMON, SEARCH_POKEMON, CLEAN_POKEMON, CHANGE_PAGE, SLICE_CHANGE } from "./actions";
+import { GET_ALL_POKEMONS, GET_DETAIL_POKEMON, SEARCH_POKEMON, CLEAN_POKEMON, CHANGE_PAGE, SLICE_CHANGE, NUMBER } from "./actions";
 
 const initialState = {
   allPokemons: [],
   pokemonName: [],
   pokemonDetails: {},
+  paginaActual: 1,
   paginado: 0,
-
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -39,6 +39,11 @@ const rootReducer = (state = initialState, action) => {
         paginaActual: action.payload,
       };
     case SLICE_CHANGE:
+      return {
+        ...state,
+        paginado: action.payload,
+      };
+    case NUMBER:
       return {
         ...state,
         paginado: action.payload,

@@ -11,9 +11,9 @@ function Cards(props) {
 
     const dispatch = useDispatch()
     useEffect(()=>{
-        dispatch(fetchPokemons())
-    }, [])
-
+        dispatch(fetchPokemons(slice12))
+    }, [slice12])
+    
     const respuesta = pokemon.length > 0 ? pokemon : characters.slice(0 + slice12,12+ slice12)
 
     return (

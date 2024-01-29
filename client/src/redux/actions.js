@@ -5,10 +5,11 @@ export const SEARCH_POKEMON = 'SEARCH_POKEMON'
 export const CLEAN_POKEMON = 'CLEAN_POKEMON'
 export const CHANGE_PAGE = 'CHANGE_PAGE';
 export const SLICE_CHANGE = 'SLICE_CHANGE';
+export const NUMBER = 'NUMBER';
 
 export const fetchPokemons = () => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:3001/pokemons');
+    const response = await axios.get(`http://localhost:3001/pokemons`);
     const pokemons = response.data;
     dispatch({
       type: GET_ALL_POKEMONS,
@@ -52,10 +53,10 @@ export const cleanSearch = () => (dispatch) => {
     payload: vacio,
   });
 }
-export const changePage = (pagina) => (dispatch) => {
+export const changePage = (pagina, num) => (dispatch) => {
   dispatch({
     type: CHANGE_PAGE,
-    payload: pagina + 1
+    payload: pagina + num
   })
 }
 export const sliceMas = (ejemplo) => (dispatch) => {
@@ -69,5 +70,12 @@ export const sliceMenos = (ejemplo) => (dispatch) => {
   dispatch({
     type: SLICE_CHANGE,
     payload: ejemplo - 12
+  })
+}
+
+export const primer12 = (cuantos) => (dispatch) => {
+  dispatch({
+    type: NUMBER,
+    payload: cuantos
   })
 }

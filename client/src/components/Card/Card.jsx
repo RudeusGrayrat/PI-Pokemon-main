@@ -29,7 +29,7 @@ function Card(props) {
 
   return (
     <div className={styles.card}>
-      <img src={url ? imagenApi : image} alt="imagenbsd" className={styles.imagenCard} />
+      <img src={url ? imagenApi : image} alt="imagen" className={styles.imagenCard} />
       <div className={styles.nombre}>
         <Link to={`/detail/${id}`} className={styles.namelink}>
           <h3>{name}</h3>
