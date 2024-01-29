@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
+import styles from  './Pagination.module.css'
 import { changePage, sliceMas, sliceMenos } from "../../redux/actions";
 
 function Pagination() {
@@ -27,6 +28,7 @@ function Pagination() {
                 <button onClick={atras}>
                     Atras
                 </button>
+                <span className={styles.span}>{paginaActual}</span>
                 <button onClick={siguiente}>
                     Siguiente
                 </button>
