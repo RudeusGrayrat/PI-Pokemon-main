@@ -1,5 +1,6 @@
 import axios from 'axios';
 export const GET_ALL_POKEMONS = 'GET_ALL_POKEMONS';
+export const GET_ALL_TYPES = 'GET_ALL_TYPES';
 export const GET_DETAIL_POKEMON = 'GET_DETAIL_POKEMON'
 export const SEARCH_POKEMON = 'SEARCH_POKEMON'
 export const CLEAN_POKEMON = 'CLEAN_POKEMON'
@@ -14,6 +15,19 @@ export const fetchPokemons = () => async (dispatch) => {
     dispatch({
       type: GET_ALL_POKEMONS,
       payload: pokemons,
+    });
+  } catch (error) {
+    alert('Error fetching pokemons:', error);
+  }
+};
+
+export const fetchTypes = () => async (dispatch) => {
+  try {
+    const response = await axios.get(`http://localhost:3001/types`);
+    const tipos = response.data;
+    dispatch({
+      type: GET_ALL_TYPES,
+      payload: tipos,
     });
   } catch (error) {
     alert('Error fetching pokemons:', error);

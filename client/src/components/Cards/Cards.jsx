@@ -3,25 +3,24 @@ import styles from './Cards.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPokemons } from '../../redux/actions';
 import { useEffect } from 'react';
+import Filters from '../Filters/Filters';
 
-function Cards(props) {
-    const characters = useSelector((state)=> state.allPokemons)
-    const pokemon = useSelector((state)=> state.pokemonName)
+function Cards() {
+    const pokemon = useSelector((state) => state.pokemonName)
+    const characters = useSelector((state) => state.allPokemons)
     const slice12 = useSelector((state) => state.paginado);
 
     const dispatch = useDispatch()
-    useEffect(()=>{
-        dispatch(fetchPokemons(slice12))
-    }, [slice12])
-    
-    const respuesta = pokemon.length > 0 ? pokemon : characters.slice(0 + slice12,12+ slice12)
+    useEffect(() => {
+        dispatch(fetchPokemons())
+    }, [])
+
+    const respuesta = pokemon.length > 0 ? pokemon : characters.slice(0 + slice12, 12 + slice12)
 
     return (
         <div className={styles.home}>
             <div>
-                <button className={styles.button}>Filtrar por Tipo</button>
-                <button className={styles.button}>Filtrar por Origen</button>
-                <button className={styles.button}>Filtrar por Ordenar</button>
+                <Filters/>
             </div>
             <div className={styles.cards}>
 
